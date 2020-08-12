@@ -8,18 +8,14 @@
                 <div class="main_home text-center">
                     <div class="col-md-12">
                         <div class="hello_slid">
-                            <div class="slid_item">
-                                <img src="{{ asset('images/rodas-lixa.jpg') }}" alt="asdf" />
-                            </div><!-- End off slid item -->
-                            <div class="slid_item">
-                                <img src="{{ asset('images/banner-01.jpg') }}" alt="asdf" />
-                            </div><!-- End off slid item -->
-                            <div class="slid_item">
-                                <img src="{{ asset('images/banner-02.jpg') }}" alt="asdf" />
-                            </div><!-- End off slid item -->
-                            <div class="slid_item">
-                                <img src="{{ asset('images/banner-03.jpg') }}" alt="asdf" />
-                            </div><!-- End off slid item -->
+                            @foreach($slides as $slide)
+                                <div class="slid_item">
+                                    <a href="{{ ($slide->link) ?? '#' }}" target="_blank">
+                                        <img src="{{ asset($slide->image) }}" alt="asdf"/>
+                                    </a>
+                                </div><!-- End off slid item -->
+                            @endforeach
+
                         </div>
                     </div>
 
@@ -38,48 +34,52 @@
             <div class="row">
                 <div class="head_title text-center fix">
                     <h2 class="text-uppercase">Nossos valores</h2>
-            <div class="row">
-                <div class="main_features fix roomy-70">
-                    <div class="col-md-4">
-                        <div class="features_item sm-m-top-30">
-                            <div class="f_item_icon">
-                                <i class="fa fa-thumbs-o-up"></i>
+                    <div class="row">
+                        <div class="main_features fix roomy-70">
+                            <div class="col-md-4">
+                                <div class="features_item sm-m-top-30">
+                                    <div class="f_item_icon">
+                                        <i class="fa fa-thumbs-o-up"></i>
+                                    </div>
+                                    <div class="f_item_text">
+                                        <h3>PARCERIAS ESTRATÉGICAS</h3>
+                                        <p>Com uma visão global, buscamos fornecedores a nível mundial, para fornecer ao
+                                            nosso
+                                            cliente o que há de melhor no mercado de abrasivos..</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="f_item_text">
-                                <h3>PARCERIAS ESTRATÉGICAS</h3>
-                                <p>Com uma visão global, buscamos fornecedores a nível mundial, para fornecer ao nosso
-                                    cliente o que há de melhor no mercado de abrasivos..</p>
+                            <div class="col-md-4">
+                                <div class="features_item sm-m-top-30">
+                                    <div class="f_item_icon">
+                                        <i class="fa fa-tablet"></i>
+                                    </div>
+                                    <div class="f_item_text">
+                                        <h3>INTEGRIDADE</h3>
+                                        <p>Através de um sistema de gestão transparente, temos interação imediata com
+                                            nossos
+                                            parceiros de negócios.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="features_item sm-m-top-30">
+                                    <div class="f_item_icon">
+                                        <i class="fa fa-sliders"></i>
+                                    </div>
+                                    <div class="f_item_text">
+                                        <h3>INOVAÇÃO</h3>
+                                        <p>Com uma administração voltada a inovação, aliamos, junto aos nossos
+                                            engenheiros, uma
+                                            cultura de melhoria contínua e desenvolvimento de novos produtos para
+                                            atender a
+                                            indústria metal mecânica.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="features_item sm-m-top-30">
-                            <div class="f_item_icon">
-                                <i class="fa fa-tablet"></i>
-                            </div>
-                            <div class="f_item_text">
-                                <h3>INTEGRIDADE</h3>
-                                <p>Através de um sistema de gestão transparente, temos interação imediata com nossos
-                                    parceiros de negócios.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="features_item sm-m-top-30">
-                            <div class="f_item_icon">
-                                <i class="fa fa-sliders"></i>
-                            </div>
-                            <div class="f_item_text">
-                                <h3>INOVAÇÃO</h3>
-                                <p>Com uma administração voltada a inovação, aliamos, junto aos nossos engenheiros, uma
-                                    cultura de melhoria contínua e desenvolvimento de novos produtos para atender a
-                                    indústria metal mecânica.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- End off row -->
-        </div><!-- End off container -->
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
     </section><!-- End off Featured Section-->
 
 
@@ -92,23 +92,19 @@
                         <div class="business_slid">
                             <div class="slid_shap bg-grey"></div>
                             <div class="business_items text-center">
-                                <div class="business_item">
-                                    <div class="business_img">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/mKhwJ46GLI8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                @foreach($banners as $banner)
+                                    <div class="business_item">
+                                        @if($banner->embed)
+                                            {{ $banner->embed }}
+                                        @else
+                                            <div class="business_img">
+                                                <a href="{{ ($banner->link) ?? '#' }}" target="_blank">
+                                                    <img src="{{ $banner->image }}" alt=""/>
+                                                </a>
+                                            </div>
+                                        @endif
                                     </div>
-                                </div>
-
-                                <div class="business_item">
-                                    <div class="business_img">
-                                        <img src="{{ asset('/images/about-img2.jpg') }}" alt=""/>
-                                    </div>
-                                </div>
-
-                                <div class="business_item">
-                                    <div class="business_img">
-                                        <img src="{{ asset('/images/about-img3.jpg') }}" alt=""/>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -172,7 +168,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img1.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img1.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img1.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -186,7 +183,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img2.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img2.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img2.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -200,7 +198,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img3.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img3.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img3.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -214,7 +213,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img4.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img4.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img4.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -235,7 +235,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img1.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img1.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img1.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -249,7 +250,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img2.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img2.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img2.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -263,7 +265,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img3.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img3.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img3.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -277,7 +280,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img4.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img4.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img4.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -298,7 +302,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img1.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img1.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img1.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -312,7 +317,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img2.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img2.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img2.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -326,7 +332,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img3.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img3.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img3.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">
@@ -340,7 +347,8 @@
                                             <div class="port_img">
                                                 <img src="{{ asset('/images/work-img4.jpg') }}" alt=""/>
                                                 <div class="port_overlay text-center">
-                                                    <a href="{{ asset('/images/work-img4.jpg') }}" class="popup-img">+</a>
+                                                    <a href="{{ asset('/images/work-img4.jpg') }}"
+                                                       class="popup-img">+</a>
                                                 </div>
                                             </div>
                                             <div class="port_caption m-top-20">

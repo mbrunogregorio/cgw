@@ -4,3 +4,7 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('category') }}'><i class='nav-icon la la-list'></i> Categories</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('product') }}'><i class='nav-icon la la-shopping-basket'></i> Products</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('tag') }}'><i class='nav-icon la la-tags'></i> Tags</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('slide') }}'><i class='nav-icon la la-question'></i> Slides</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('banner') }}'><i class='nav-icon la la-question'></i> Banners</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('tip') }}'><i class='nav-icon la la-question'></i> Tips</a></li>

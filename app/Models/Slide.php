@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class Product extends Model
+class Slide extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use SoftDeletes;
@@ -19,10 +19,9 @@ class Product extends Model
      */
     protected $fillable = [
         'name',
-        'slug',
-        'image',
+        'link',
         'description',
-        'category_id',
+        'image',
     ];
 
     /**
@@ -32,20 +31,7 @@ class Product extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'category_id' => 'integer',
     ];
-
-
-    public function tags()
-    {
-        return $this->belongsToMany(\App\Models\Tag::class);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(\App\Models\Category::class);
-    }
-
 
     public function setImageAttribute($value)
     {
@@ -53,7 +39,7 @@ class Product extends Model
         // or use your own disk, defined in config/filesystems.php
         $disk = config('backpack.base.root_disk_name');
         // destination path relative to the disk above
-        $destination_path = "public/uploads/content/products";
+        $destination_path = "public/uploads/content/banner";
 
         // if the image was erased
         if ($value==null) {
