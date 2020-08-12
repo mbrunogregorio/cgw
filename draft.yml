@@ -1,0 +1,30 @@
+models:
+  Models\Category:
+    name: string
+    slug: string unique default:''
+    description: string nullable
+    timestamps: true
+    softDeletes: true
+    relationships:
+      hasMany: Product
+
+  Models\Tag:
+    name: string
+    slug: string unique default:''
+    timestamps: true
+    softDeletes: true
+    relationships:
+      belongsToMany: Product
+
+  Models\Product:
+    name: string:400
+    slug: string unique default:''
+    image: string nullable
+    description: longtext nullable
+    category_id: id foreign:categories nullable
+    timestamps: true
+    softDeletes: true
+    relationships:
+      belongsToMany: Tag
+
+seeders: Product, Category, Tag
