@@ -833,9 +833,15 @@ textarea::-ms-input-placeholder{
 /*
 Nav Menu style
 ==================*/
+@media only screen and (max-width: 600px) {
+    .navbar-brand {
+        padding: 0px;
+    }
+
+}
 
 .navbar-brand {
-    padding: 25px 15px;
+    /*padding: 25px 15px;*/
 }
 .navbar-brand > img {
     display: block;
@@ -870,7 +876,7 @@ Home Section style
 ==================*/
 
 .home{
-    background: url(../images/home-bg.jpg) no-repeat scroll  center center;
+    /*background: url(../images/home-bg.jpg) no-repeat scroll  center center;*/
     background-size: cover;
     position: relative;
     padding-top: 150px;

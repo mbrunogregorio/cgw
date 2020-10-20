@@ -5,8 +5,8 @@
         <li><a href="#tecnologia">Tecnologia</a></li>
         <li><a href="#produtos">Produtos</a></li>
         <li><a href="#instrucoes">Informações técnicas</a></li>
-        <li><a href="{{ route('downloads') }}">Downloads</a></li>
-        <li><a href="{{ route('rebolos') }}">Rebolos</a></li>
-        <li><a href="{{ route('contato') }}">Contato</a></li>
+        <li><a href="#">Downloads</a></li>
+        <li><a href="#">Rebolos</a></li>
+        <li><a href="#">Contato</a></li>
     </ul>
 </div>

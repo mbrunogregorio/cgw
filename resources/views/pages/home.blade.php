@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <section id="home" class="home bg-black fix">
-        <div class="overlay"></div>
+    <section id="home" class="home fix">
+        {{--<div class="overlay"></div> --}}
         <div class="container">
             <div class="row">
                 <div class="main_home text-center">
@@ -437,6 +437,7 @@
 
 
     <!--Brand Section-->
+    {{--
     <section id="brand" class="brand fix roomy-80">
         <div class="container">
             <div class="row">
@@ -474,7 +475,9 @@
                 </div>
             </div>
         </div>
-    </section><!-- End off Brand section -->
+    </section>
+    --}}
+    <!-- End off Brand section -->
 
 
     <!--Call to  action section-->
